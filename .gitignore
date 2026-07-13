@@ -1,0 +1,12 @@
+# Gradle / build outputs
+claude-bridge/.gradle/
+claude-bridge/build/
+claude-bridge/run/
+
+# IDE
+.idea/
+*.iml
+
+# Reference mod jars (stock mods, downloadable; run/mods copies are gitignored above)
+*.jar
+!claude-bridge/gradle/wrapper/gradle-wrapper.jar
