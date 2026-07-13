@@ -10,3 +10,4 @@ claude-bridge/run/
 # Reference mod jars (stock mods, downloadable; run/mods copies are gitignored above)
 *.jar
 !claude-bridge/gradle/wrapper/gradle-wrapper.jar
+serve.log

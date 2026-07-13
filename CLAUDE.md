@@ -5,7 +5,7 @@ Per-folder CLAUDE.md auto-loads with detail; this file is only a map. Don't gues
 
 ## Non-negotiables
 - **The MCP server lives INSIDE the game** (`http://127.0.0.1:8756/mcp`, config in `.mcp.json`). You cannot start it from the CLI — the user must launch Minecraft with the mod. If the `minecraft` MCP tools fail to connect, the game isn't running.
-- **Serving mode**: when asked to "serve" the player, loop forever on `await_chat_prompt` → do the request → verify → `send_chat` the result → repeat. Never stop the loop on TIMEOUT — call it again. (`serve.ps1` starts this headless.)
+- **Serving mode — default is background**: when the user asks to serve/listen/"start the server", launch `serve.ps1` as a **background process** (Bash `run_in_background`: `powershell -ExecutionPolicy Bypass -File serve.ps1`), confirm it's running, and stay available for normal conversation; the background headless session handles in-game `/claude` requests. Report its progress when the user asks. Only serve inline (loop on `await_chat_prompt` yourself) if the user explicitly wants it in the foreground.
 - **Build-tool preference**: structures → `build_from_python` (mcschematic script, auto-pasted via WorldEdit) or `create_litematic`+`place_litematic`; raw WorldEdit `run_command` is for terrain edits/replacements, not structures. **Never `/tp` the player** unless they explicitly ask to be moved.
 - **Verify every world change** with `get_block`/`get_region_summary` — paste/commands can silently no-op (see BUGLOG-mcp-minecraft.md history).
 - **Never modify the companion mods** (litematica/malilib/worldedit jars) — they are stock references; all fixes go in `claude-bridge/`.

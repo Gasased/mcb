@@ -13,4 +13,5 @@ Serve my Minecraft requests. Loop forever:
 3. Verify the result (get_block / get_region_summary) and report via send_chat.
 '@
 
-claude -p $prompt --allowedTools "mcp__minecraft" --verbose
+# Log to serve.log so a foreground Claude session can check progress.
+claude -p $prompt --allowedTools "mcp__minecraft" --verbose 2>&1 | Tee-Object -FilePath "$PSScriptRoot\serve.log"
