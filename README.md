@@ -1,5 +1,9 @@
 # mcb — Minecraft Builder MCP
 
+![Claude builds "MCB" in glowstone above a temple plaza, with an in-game chat line from Claude](docs/img/header.webp)
+
+*On camera: dolphin statue, starter house, space rocket, goddess statue, 268-block aqueduct, glowing MCB sign, and a coral pond with a leaning palm. All built by Claude from in-game `/claude` prompts — no human placed a block.*
+
 Type `/claude build me a castle` in Minecraft chat — and Claude builds it.
 
 **mcb** is a client-side Fabric mod for **Minecraft 26.2** that embeds an [MCP](https://modelcontextprotocol.io) server inside the game, plus a Claude Code workflow around it. Claude designs structures as schematics (Litematica ghost blocks or instant paste), terraforms with WorldEdit, and reads your world to know what it's doing.
